@@ -1,10 +1,13 @@
 import { Injectable } from '@nestjs/common';
-import { CreateAlunoDto } from './dto/create-aluno.dto';
+import { CreateAlunoInputDto } from './dto/create-aluno.dto';
 import { UpdateAlunoDto } from './dto/update-aluno.dto';
+import { AlunosRepository } from './alunos.repository';
 
 @Injectable()
 export class AlunosService {
-  create(createAlunoDto: CreateAlunoDto) {
+  constructor(private readonly alunoRepository: AlunosRepository) {}
+
+  create(createAlunoDto: CreateAlunoInputDto) {
     return 'This action adds a new aluno';
   }
 
